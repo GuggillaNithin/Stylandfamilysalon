@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { Play, Check, Users, MapPin, Smile, Award, Quote } from "lucide-react";
+import BridalVideoGallery from "@/components/BridalVideoGallery";
 
 export const metadata = {
   title: "Bridal Makeup Services in Hyderabad | STYLAND Family Salon",
@@ -19,27 +20,7 @@ export default function BridalMakeupPage() {
             STYLAND Glamour Moments
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-12">
-            {[
-              "/gallery/gallery1.jpeg",
-              "/gallery/gallery2.jpeg",
-              "/gallery/gallery3.jpeg"
-            ].map((src, idx) => (
-              <div key={idx} className="relative aspect-[3/4] md:aspect-square lg:aspect-[4/5] rounded-lg overflow-hidden group cursor-pointer shadow-xl">
-                <Image
-                  src={src}
-                  alt={`Glamour Moment ${idx + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="w-6 h-6 text-white fill-white ml-1" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <BridalVideoGallery />
 
           <div className="text-center">
             <Link 

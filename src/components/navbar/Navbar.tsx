@@ -34,83 +34,97 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 w-full z-[1000] bg-black/70 backdrop-blur-md border-b border-white/10">
         <div className="mx-auto flex w-full max-w-[1450px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8 2xl:px-10">
 
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Styland Family Salon"
-            width={160}
-            height={70}
-            priority
-          />
-        </Link>
-
-        {/* DESKTOP MENU */}
-        <nav className="hidden lg:flex items-center gap-10 font-medium">
-
-          <Link href="/" className="text-white hover:text-[#d4af37] transition">
-            Home
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="Styland Family Salon"
+              width={160}
+              height={70}
+              priority
+            />
           </Link>
 
-          {/* SERVICES DROPDOWN DESKTOP */}
-          <div
-            className="relative"
-            onMouseEnter={() => setDesktopServiceOpen(true)}
-            onMouseLeave={() => setDesktopServiceOpen(false)}
-          >
-            <button suppressHydrationWarning className="text-white hover:text-[#d4af37] transition">
-              Services
-            </button>
+          {/* DESKTOP MENU */}
+          <nav className="hidden lg:flex items-center gap-10 font-medium">
 
-            <AnimatePresence>
-              {desktopServiceOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute left-0 top-8 bg-black border border-white/10 rounded-lg shadow-lg py-3 w-40"
-                >
-                  <Link
-                    href="/men"
-                    className="block px-4 py-2 text-white hover:text-[#d4af37] transition"
+            <Link href="/" className="text-white hover:text-[#d4af37] transition">
+              Home
+            </Link>
+            <Link href="/about" className="text-white hover:text-[#d4af37] transition">
+              About Us
+            </Link>
+
+
+
+            {/* SERVICES DROPDOWN DESKTOP */}
+            <div
+              className="relative"
+              onMouseEnter={() => setDesktopServiceOpen(true)}
+              onMouseLeave={() => setDesktopServiceOpen(false)}
+            >
+              <button suppressHydrationWarning className="text-white hover:text-[#d4af37] transition">
+                Services
+              </button>
+
+              <AnimatePresence>
+                {desktopServiceOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-8 bg-black border border-white/10 rounded-lg shadow-lg py-3 w-40"
                   >
-                    Men
-                  </Link>
-                  <Link
-                    href="/women"
-                    className="block px-4 py-2 text-white hover:text-[#d4af37] transition"
-                  >
-                    Women
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    <Link
+                      href="/men"
+                      className="block px-4 py-2 text-white hover:text-[#d4af37] transition"
+                    >
+                      Men
+                    </Link>
+                    <Link
+                      href="/women"
+                      className="block px-4 py-2 text-white hover:text-[#d4af37] transition"
+                    >
+                      Women
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <Link href="/bridal-makeup" className="text-white hover:text-[#d4af37] transition">
+              Bridal Makeup
+            </Link>
+            <Link href="/packages" className="text-white hover:text-[#d4af37] transition">
+              Packages
+            </Link>
+
+            <Link href="/gallery" className="text-white hover:text-[#d4af37] transition">
+              Gallery
+            </Link>
+            <Link href="/contact" className="text-white hover:text-[#d4af37] transition">
+              Contact Us
+            </Link>
+          </nav>
+
+          {/* DESKTOP BUTTON */}
+          <div className="hidden lg:block">
+            <Link
+              href="/book-appointment"
+              className="border border-white text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37]"
+            >
+              Book Appointment
+            </Link>
           </div>
 
-          <Link href="/contact" className="text-white hover:text-[#d4af37] transition">
-            Contact Us
-          </Link>
-        </nav>
-
-        {/* DESKTOP BUTTON */}
-        <div className="hidden lg:block">
-          <Link
-            href="/book-appointment"
-            className="border border-white text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37]"
+          {/* MOBILE MENU BUTTON */}
+          <button
+            suppressHydrationWarning
+            className="lg:hidden text-white text-2xl"
+            onClick={() => setIsOpen(true)}
           >
-            Book Appointment
-          </Link>
-        </div>
-
-        {/* MOBILE MENU BUTTON */}
-        <button
-          suppressHydrationWarning
-          className="lg:hidden text-white text-2xl"
-          onClick={() => setIsOpen(true)}
-        >
-          <BsGrid3X3GapFill />
-        </button>
+            <BsGrid3X3GapFill />
+          </button>
         </div>
       </header>
 
@@ -148,6 +162,34 @@ const Navbar = () => {
                 className="text-white text-lg hover:text-[#d4af37] transition"
               >
                 Home
+              </Link>
+              <Link
+                href="/about"
+                onClick={closeMenu}
+                className="text-white text-lg hover:text-[#d4af37] transition"
+              >
+                About Us
+              </Link>
+              <Link
+                href="/gallery"
+                onClick={closeMenu}
+                className="text-white text-lg hover:text-[#d4af37] transition"
+              >
+                Gallery
+              </Link>
+              <Link
+                href="/bridal-makeup"
+                onClick={closeMenu}
+                className="text-white text-lg hover:text-[#d4af37] transition"
+              >
+                Bridal Makeup
+              </Link>
+              <Link
+                href="/packages"
+                onClick={closeMenu}
+                className="text-white text-lg hover:text-[#d4af37] transition"
+              >
+                Packages
               </Link>
 
               {/* MOBILE SERVICES DROPDOWN */}
