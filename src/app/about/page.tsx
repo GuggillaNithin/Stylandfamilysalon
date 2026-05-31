@@ -4,9 +4,40 @@ import Footer from "@/components/Footer";
 import FaqAccordion from "@/components/FaqAccordion";
 import { Scissors, BadgeCheck, Sparkles, Droplets, Armchair } from "lucide-react";
 
-export const metadata = {
-  title: "About Us | STYLAND Family Salon",
-  description: "Learn more about STYLAND Family Salon, our journey, premium grooming services, and the expert professionals ready to transform your look.",
+import type { Metadata } from "next";
+import { seoPages } from "../seoConfig";
+
+const seo = seoPages.about;
+
+export const metadata: Metadata = {
+  title: seo.title,
+  description: seo.description,
+  keywords: seo.keywords,
+  alternates: {
+    canonical: seo.canonical,
+  },
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    url: seo.canonical,
+    siteName: "STYLAND Family Salon",
+    images: [
+      {
+        url: "https://stylandfamilysalon-phi.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "STYLAND Family Salon Madhapur Hyderabad",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.description,
+    images: ["https://stylandfamilysalon-phi.vercel.app/og-image.jpg"],
+  },
 };
 
 const workingHours = [
